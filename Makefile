@@ -2,7 +2,7 @@ NAME=sshfront
 OWNER=gliderlabs
 ARCH=$(shell uname -m)
 RMFLAG=--rm
-VERSION=0.2.1
+VERSION=0.2.1-5.3-release
 
 build/Linux/sshfront:
 	mkdir -p build/Linux && GOOS=linux CGO_ENABLED=0 go build -a \
