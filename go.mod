@@ -1,6 +1,6 @@
 module github.com/plotly/sshfront
 
-go 1.22.3
+go 1.23.1
 
 require (
 	github.com/flynn/go-shlex v0.0.0-20150515145356-3f9db97f8568
