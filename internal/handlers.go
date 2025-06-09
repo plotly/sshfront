@@ -72,9 +72,15 @@ func HandleAuth(conn ssh.ConnMetadata, key ssh.PublicKey) (*ssh.Permissions, err
 	if err != nil {
 		return nil, err
 	}
+
 	var output bytes.Buffer
-	cmd.Stdout = &output
-	cmd.Stderr = &output
+	if *DebugMode {
+		cmd.Stdout = io.MultiWriter(os.Stderr, &output)
+		cmd.Stderr = io.MultiWriter(os.Stderr, &output)
+	} else {
+		cmd.Stdout = &output
+		cmd.Stderr = &output
+	}
 	status, err := exitStatus(cmd.Run())
 	if err != nil {
 		return nil, err
