@@ -5,7 +5,7 @@ RMFLAG=--rm
 VERSION=0.2.1
 
 build/Linux/sshfront:
-	mkdir -p build/Linux && GOOS=linux CGO_ENABLED=0 go build -a \
+	mkdir -p build/Linux && GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -a \
 		-ldflags "-X main.Version=$(VERSION)" \
 		-installsuffix cgo \
 		-o build/Linux/$(NAME) ./cmd/sshfront
